@@ -22,7 +22,7 @@ player = Player(
     constants.PLAYER_SIZE,
     constants.PLAYER_MOVEMENT_SPEED,
     Gun(constants.GUN_WIDTH, constants.GUN_LENGTH, enemies),
-    500
+    constants.BULLET_RELOAD_TIME
 )
 
 while running:
