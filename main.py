@@ -29,8 +29,6 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if stop is False:    
-            player.handle_gun(event)
 
     if stop is False:
         screen.fill(constants.BACKGROUND_COLOR)

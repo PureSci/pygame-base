@@ -12,6 +12,7 @@ class Player(GunnedEntity):
     def handle(self, delta_time: float, enemies: list[Enemy]):
         self.__handle_movement__(delta_time)
         self.draw(delta_time)
+        self.__handle_gun__()
         return self.__handle_enemies__(enemies)
     
     def __handle_movement__(self, delta_time: float):
@@ -46,8 +47,8 @@ class Player(GunnedEntity):
                 return True
         return False
 
-    def handle_gun(self, event: pygame.event.Event):
-        if event.type == pygame.MOUSEBUTTONDOWN:
+    def __handle_gun__(self):
+        if pygame.mouse.get_pressed()[0]:
             current_time = pygame.time.get_ticks()
             if current_time - self.last_shot_time >= self.shot_cooldown:
                 cursor_x, cursor_y = pygame.mouse.get_pos()
