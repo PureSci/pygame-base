@@ -30,9 +30,11 @@ class Gun:
             for enemy in self.enemies:
                 if (bullet_x < enemy.x + enemy.size and bullet_x + bullet_size > enemy.x and
                     bullet_y < enemy.y + enemy.size and bullet_y + bullet_size > enemy.y):
-                    self.enemies.remove(enemy)
-                    self.bullets.remove(bullet)
-            if isded:
+                    if enemy in self.enemies:
+                        self.enemies.remove(enemy)
+                    if bullet in self.bullets:
+                        self.bullets.remove(bullet)
+            if isded and (bullet in self.bullets):
                 self.bullets.remove(bullet)
         pygame.draw.polygon(self.entity.screen, constants.PLAYER_COLOR, [corner1, corner2, corner3, corner4]) 
 
